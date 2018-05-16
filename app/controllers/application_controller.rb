@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :home
   end
 
   helpers do
@@ -22,5 +22,6 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by_id[:user_id]
     end
+  end
 
 end
