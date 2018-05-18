@@ -1,0 +1,6 @@
+<% @lattes.each do |latte| %>
+<%= latte.name %><br>
+<%= latte.flavor %><br>
+
+<a href="/lattes/<%=latte.id%>/edit">Edit Latte</a>
+<% end %>

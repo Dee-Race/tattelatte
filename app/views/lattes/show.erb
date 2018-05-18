@@ -1,0 +1,10 @@
+<%= @latte.flavor %>
+
+<p>Delete Latte</p>
+
+<a href="lattes/edit">Edit Latte</a>
+
+<form action="lattes/<%= @latte.id %>/delete" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="Delete">
+  <input type="submit" name="submit" value="Delete Latte" id="submit">
+</form>
