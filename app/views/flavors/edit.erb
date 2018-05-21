@@ -1,0 +1,8 @@
+<h1>Edit <%= @flavor.name %></h1>
+
+<form action="/flavors/<%=@flavor.id %>" method="POST">
+  <label>Flavor: </label>
+    <input type="text" name="name" value="<%=@flavor.name">
+    <input type="submit" value="Update Flavor">
+  </form>
+  
