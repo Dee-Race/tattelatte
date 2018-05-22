@@ -3,9 +3,13 @@
 <form action="/latte/<%=@latte.id %>" method="POST">
   <label>Latte Name:</label>
   <input type="text" name="name" value="<%=@latte.name%>"><br>
-
   <label>Flavor:</label>
-  <input type="text" name="flavor" value="<%=@latte.flavors%>"><br>
+  <input type="text" name="flavor" value="<%=@latte.flavor%>"><br>
+  <label>Size:</label>
+  <input type="text" name="size" value="<%=@latte.size%>"><br>
+  <label>Description:</label>
+  <input type="text" name="description" value="<%=@latte.description%>"><br>
+
 
   <input type="submit" value="Update Latte">
 </form>

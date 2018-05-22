@@ -11,16 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516153528) do
-
-  create_table "flavors", force: :cascade do |t|
-    t.string  "name"
-    t.integer "latte_id"
-  end
+ActiveRecord::Schema.define(version: 20180516153308) do
 
   create_table "lattes", force: :cascade do |t|
     t.string  "name"
+    t.string  "flavor"
     t.string  "size"
+    t.string  "description"
     t.integer "user_id"
   end
 

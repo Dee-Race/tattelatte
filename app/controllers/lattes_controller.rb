@@ -11,7 +11,7 @@ class LattesController < ApplicationController
 
   post '/lattes' do
     if !params[:latte].empty?
-      @latte = Latte.create(name: params[:name], flavor: params[:flavor], user_id: current_user.id)
+      @latte = Latte.create(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description], user_id: current_user.id)
       redirect to "/lattes/#{@latte.id}"
     else
       redirect '/lattes/new'

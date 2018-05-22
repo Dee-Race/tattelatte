@@ -1,6 +1,15 @@
-<% @lattes.each do |latte| %>
-<%= latte.name %><br>
-<%= latte.flavors %><br>
+<ul>
 
-<a href="/lattes/<%=latte.id%>/edit">Edit Latte</a>
+<% @lattes.each do |latte| %>
+
+<h3><%= latte.name %></h3><br>
+
+<li><p><%= latte.flavor %></li></p>
+<li><p><%= latte.size %></li></p>
+<li><p><%= latte.description %></li><p>
+
+
+<li><a href="/lattes/<%=latte.id%>/edit">Edit Latte</a></li><br>
+
 <% end %>
+</ul>
