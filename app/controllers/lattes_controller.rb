@@ -2,9 +2,8 @@ class LattesController < ApplicationController
 
   get '/lattes' do
     if logged_in?
-      @user = User.find(session[:user_id])
       @lattes = Latte.all
-        erb :'/lattes/lattes'
+      erb :'/lattes/lattes'
     else
       redirect '/login'
     end

@@ -1,6 +1,8 @@
 <h3>Welcome <%= @user.username %></h3>
 
-<p>Here are all your coffee beverages:</p>
-<%= @user.lattes.each do |latte| %>
-<%= latte.flavor %>
-<% end %>
+<ul>
+<li><p>What would you like to do today?</p></li>
+<li><p><a href="/lattes">View All Lattes</a></p></li>
+<li><p><a href="/lattes/new">Create New Latte</a></p></li>
+<li><p><a href="/logout">Logout</a></p></li>
+</ul>
