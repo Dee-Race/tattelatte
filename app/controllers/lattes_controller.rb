@@ -10,11 +10,11 @@ class LattesController < ApplicationController
   end
 
   post '/lattes' do
-    if !params[:latte].empty?
+    if logged_in?
       @latte = Latte.create(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description], user_id: current_user.id)
       redirect to "/lattes/#{@latte.id}"
     else
-      redirect '/lattes/new'
+      redirect '/'
     end
   end
 
@@ -44,13 +44,21 @@ class LattesController < ApplicationController
     end
   end
 
+  post '/lattes/:id' do
+    @latte = Latte.find_by_id(params[:id])
+    redirect "/lattes/#{@latte.id}"
+  end
+
+
+
   patch '/lattes/:id' do
     if logged_in?
-      @latte = Latte.find_by_id(params[:id])
-      @latte.update(name: params[:name])
-      if !params[:name].empty?
+
+      if !name.empty? && !flavor.empty? && !size.empty? && !description.empty?
+        @latte = Latte.find_by_id(params[:id])
+        @latte.update(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description])
         @latte.save
-        redirect "/lattes/#{@latte.id}"
+        redirect to "/lattes/#{@latte.id}"
       else
         redirect "/lattes/#{@latte.id}/edit"
       end
@@ -59,7 +67,7 @@ class LattesController < ApplicationController
     end
   end
 
-  delete '/lattes/:id/delete' do
+  post '/lattes/:id/delete' do
     if logged_in?
       @latte = Latte.find_by_id(params[:id])
       if @latte && current_user.id == @latte.user_id
@@ -72,8 +80,5 @@ class LattesController < ApplicationController
       redirect "/lattes/#{@latte.id}"
     end
   end
-
-
-
 
 end

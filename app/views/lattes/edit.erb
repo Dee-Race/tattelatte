@@ -12,7 +12,8 @@
 
     <h1>Edit <%= @latte.name %></h1>
 
-      <form action="/latte/<%=@latte.id %>" method="POST">
+      <form action="/lattes/<%=@latte.id%>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="patch">
         <p>Latte Name:</p>
         <input type="text" name="name" value="<%=@latte.name%>"><br>
 
@@ -28,5 +29,6 @@
 
         <input type="submit" value="Update Latte">
       </form>
+    </div>
   </body>
 </html>
