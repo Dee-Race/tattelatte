@@ -1,10 +1,25 @@
-<%= @latte.name %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-<p>Delete Latte</p>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/main.css" />
 
-<a href="lattes/edit">Edit Latte</a>
+</head>
+<body>
+  <div class="main">
 
-<form action="lattes/<%= @latte.id %>/delete" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="Delete">
-  <input type="submit" name="submit" value="Delete Latte" id="submit">
-</form>
+    <%= @latte.name %>
+
+      <p>Delete Latte</p>
+
+      <a href="lattes/edit">Edit Latte</a>
+
+        <form action="lattes/<%= @latte.id %>/delete" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="Delete">
+        <input type="submit" name="submit" value="Delete Latte" id="submit">
+      </form>
+
+    </body>
+  </html>

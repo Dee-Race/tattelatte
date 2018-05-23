@@ -1,8 +1,23 @@
-<h3>Welcome <%= @user.username %></h3>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-<ul>
-<li><p>What would you like to do today?</p></li>
-<li><p><a href="/lattes">View All Lattes</a></p></li>
-<li><p><a href="/lattes/new">Create New Latte</a></p></li>
-<li><p><a href="/logout">Logout</a></p></li>
-</ul>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+
+</head>
+<body>
+  <div class="main">
+
+    <h3>Welcome <%= @user.username %></h3>
+
+    <ul>
+      <li><p>What would you like to do today?</p></li>
+      <li><p><a href="/lattes">View All Lattes</a></p></li>
+      <li><p><a href="/lattes/new">Create New Latte</a></p></li>
+      <li><p><a href="/logout">Logout</a></p></li>
+    </ul>
+
+  </body>
+</html>

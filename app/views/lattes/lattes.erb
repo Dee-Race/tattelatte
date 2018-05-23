@@ -1,15 +1,28 @@
-<ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-<% @lattes.each do |latte| %>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/main.css" />
 
-<h3><%= latte.name %></h3><br>
-
-<li><p><%= latte.flavor %></li></p>
-<li><p><%= latte.size %></li></p>
-<li><p><%= latte.description %></li><p>
+</head>
+<body>
+  <div class="main">
 
 
-<li><a href="/lattes/<%=latte.id%>/edit">Edit Latte</a></li><br>
+    <% @lattes.each do |latte| %>
 
-<% end %>
-</ul>
+    <h1><%= latte.name %></h1><br>
+
+    <h3><%= latte.flavor %></h3>
+    <h3><%= latte.size %></h3>
+    <h3><%= latte.description %><h3>
+
+
+    <a href="/lattes/<%=latte.id%>/edit">Edit Latte</a><br>
+
+      <% end %>
+
+  </body>
+</html>

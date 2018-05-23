@@ -14,37 +14,69 @@
     color: black;
     font-family: monospace;
     font-size: 36px;
-    line-height: 54px;
     text-align: center;
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    color: black;
+    font-family: monospace;
     font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 16px;
+    text-align: center;
   }
 
   h3 {
+    text-align: center;
+    color: black;
     font-size: 18px;
-    line-height: 36px;
+    font-family: monospace;
   }
 
   p {
-    margin-bottom: 18px;
+    color: black;
+    font-size: 16px;
+    font-family: monospace;
+    text-align: left;;
+  }
+
+  a {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-family: monospace;
+  }
+
+  .button {
+    color: black;
+    font-family: monospace;
+    font-size: 14;
+    letter-spacing: 2px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 1rem 1rem;
+    margin-top: 2rem;
+    display: block;
+    text-align: center;
   }
 
   .main {
-    display: flex;
+    display: block;
     justify-content: center;
     height: 100%;
     width: 100%;
   }
 
-  .button {
-    color: white;
-    font-family: monospace;
-    font-size: 12;
-    letter-spacing: 2px;
-    display: block;
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    background-color: white;
+    color: black;
+    padding: 1rem 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
   }

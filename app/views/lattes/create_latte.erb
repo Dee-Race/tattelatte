@@ -1,17 +1,32 @@
-<h1>Create a New Latte</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-<form action="/lattes" method="POST">
-  <label>Latte Name:</label>
-  <input type="text" name="name"><br>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/main.css" />
 
-  <label>Flavor:</label>
-  <input type="text" name="flavor"></br>
+</head>
+  <body>
+    <div class="main">
 
-  <label>Size:</label>
-  <input type="text" name="size"></br>
+        <h1>Create a New Latte</h1>
 
-  <label>Description:</label>
-  <input type="text" name="description"></br>
+          <form action="/lattes" method="POST">
+          <label>Latte Name:</label>
+          <input type="text" name="name"><br>
 
-  <input type="submit" value="Brew">
-</form>
+          <label>Flavor:</label>
+          <input type="text" name="flavor"></br>
+
+          <label>Size:</label>
+          <input type="text" name="size"></br>
+
+          <label>Description:</label>
+          <input type="text" name="description"></br>
+
+          <input type="submit" value="Brew">
+        </form>
+
+      </body>
+</html>

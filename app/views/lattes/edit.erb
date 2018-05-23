@@ -1,15 +1,32 @@
-<h1>Edit <%= @latte.name %></h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-<form action="/latte/<%=@latte.id %>" method="POST">
-  <label>Latte Name:</label>
-  <input type="text" name="name" value="<%=@latte.name%>"><br>
-  <label>Flavor:</label>
-  <input type="text" name="flavor" value="<%=@latte.flavor%>"><br>
-  <label>Size:</label>
-  <input type="text" name="size" value="<%=@latte.size%>"><br>
-  <label>Description:</label>
-  <input type="text" name="description" value="<%=@latte.description%>"><br>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+
+</head>
+<body>
+  <div class="main">
+
+    <h1>Edit <%= @latte.name %></h1>
+
+      <form action="/latte/<%=@latte.id %>" method="POST">
+        <p>Latte Name:</p>
+        <input type="text" name="name" value="<%=@latte.name%>"><br>
+
+        <p>Flavor:</p>
+        <input type="text" name="flavor" value="<%=@latte.flavor%>"><br>
+
+        <p>Size:</p>
+        <input type="text" name="size" value="<%=@latte.size%>"><br>
+
+        <p>Description:</p>
+        <input type="text" name="description" value="<%=@latte.description%>"><br>
 
 
-  <input type="submit" value="Update Latte">
-</form>
+        <input type="submit" value="Update Latte">
+      </form>
+  </body>
+</html>
