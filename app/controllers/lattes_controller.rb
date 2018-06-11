@@ -2,7 +2,7 @@ class LattesController < ApplicationController
 
   get '/lattes' do
     if logged_in?
-      @lattes = Latte.all
+      @lattes = Latte.all 
       erb :'/lattes/lattes'
     else
       redirect '/login'
@@ -36,17 +36,16 @@ class LattesController < ApplicationController
   end
 
   get '/lattes/:id/edit' do
-    if logged_in?
-      @latte = Latte.find_by_id(params[:id])
-      erb :'/lattes/edit'
-    else
-      redirect '/login'
-    end
-  end
-
-  post '/lattes/:id' do
     @latte = Latte.find_by_id(params[:id])
-    redirect "/lattes/#{@latte.id}"
+
+    if !logged_in?
+      redirect '/login'
+    elsif
+      @latte.user_id != current_user.id
+      redirect '/lattes'
+    else
+      erb :'/lattes/edit'
+    end
   end
 
 
@@ -55,8 +54,8 @@ class LattesController < ApplicationController
     if logged_in?
 
       if !name.empty? && !flavor.empty? && !size.empty? && !description.empty?
-        @latte = Latte.find_by_id(params[:id])
-        @latte.update(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description])
+        @latte = Latte.find_by(params[:id])
+        @latte.update(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description]) if @latte.user == current_user
         @latte.save
         redirect to "/lattes/#{@latte.id}"
       else

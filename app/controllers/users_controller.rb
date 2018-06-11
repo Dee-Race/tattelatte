@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  enable :sessions
+  use Rack::Flash
 
   get '/signup' do
     if logged_in?
@@ -9,17 +11,20 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == "" || params[:email] == ""
-      redirect :'/signup'
-    else
-      @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-      session[:user_id] = @user.id
-      redirect '/lattes'
+    @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    if @user.save
+      session[:id] = @user.id
+      redirect "/users/#{@user.id}"
+    else User.find_by(username: username)
+      flash[:message] = "This username is not available"
+      redirect to '/signup'
     end
   end
 
   get '/login' do
-    if logged_in?
+    if session[:user_id]
+      flash[:message] = "You're already logged in!"
+
       redirect '/lattes'
     else
       erb :'/users/login'
@@ -31,14 +36,16 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/lattes'
+      flash[:message] = "Welcome #{@user.username}!"
+
+      redirect "/users/#{@user.id}"
     else
       redirect '/login'
     end
   end
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
+  get '/users/:id' do
+    @user = User.find_by_id(params[:id])
     erb :'/users/show'
   end
 
