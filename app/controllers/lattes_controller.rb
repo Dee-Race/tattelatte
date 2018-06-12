@@ -2,7 +2,7 @@ class LattesController < ApplicationController
 
   get '/lattes' do
     if logged_in?
-      @lattes = Latte.all 
+      @lattes = Latte.all
       erb :'/lattes/lattes'
     else
       redirect '/login'
@@ -49,12 +49,11 @@ class LattesController < ApplicationController
   end
 
 
-
   patch '/lattes/:id' do
     if logged_in?
 
-      if !name.empty? && !flavor.empty? && !size.empty? && !description.empty?
-        @latte = Latte.find_by(params[:id])
+      @latte = Latte.find_by_id(params[:id])
+      if !@latte.name.empty? && !@latte.flavor.empty? && !@latte.size.empty? && !@latte.description.empty?
         @latte.update(name: params[:name], flavor: params[:flavor], size: params[:size], description: params[:description]) if @latte.user == current_user
         @latte.save
         redirect to "/lattes/#{@latte.id}"
