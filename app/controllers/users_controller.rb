@@ -13,10 +13,13 @@ class UsersController < ApplicationController
   post '/signup' do
     @user = User.create(username: params[:username], email: params[:email], password: params[:password])
     if @user.save
-      session[:id] = @user.id
-      redirect "/users/#{@user.id}"
-    else User.find_by(username: username)
+      session[:user_id] = @user.id
+      redirect to "/lattes"
+    elsif User.find_by(username: params[:username])
       flash[:message] = "This username is not available"
+      redirect to '/signup'
+    else
+      flash[:message] = "Whoops! There was an error processing your informtion."
       redirect to '/signup'
     end
   end
